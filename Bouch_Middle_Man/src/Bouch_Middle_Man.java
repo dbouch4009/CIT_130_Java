@@ -107,11 +107,11 @@ public class Bouch_Middle_Man extends JFrame
         ShowMessage("\n Now connected to Reader: " + socketReadConnection.getInetAddress().getHostName() + " at " + socketReadConnection.getLocalPort());
     }
 
-    private void SetUpStreams() throws IOException
+    private void SetUpStreams() throws IOException, InterruptedException
     {
         objectOutputStream = new ObjectOutputStream(socketReadConnection.getOutputStream());
         objectOutputStream.flush();
-
+        Thread.sleep(500);
         objectInputStream = new ObjectInputStream(socketWriteConnection.getInputStream());
 
         ShowMessage("\n Streams are now established.");
