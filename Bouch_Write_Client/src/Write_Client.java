@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Scanner;
 import javax.swing.*;
 
 public class Write_Client extends JFrame

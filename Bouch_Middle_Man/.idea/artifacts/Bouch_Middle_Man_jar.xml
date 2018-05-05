@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Bouch_Middle_Man:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Bouch_Middle_Man_jar</output-path>
+    <root id="archive" name="Bouch_Middle_Man.jar">
+      <element id="module-output" name="Bouch_Middle_Man" />
+    </root>
+  </artifact>
+</component>

@@ -58,10 +58,28 @@ public class Bouch_Middle_Man extends JFrame
             {
                 try
                 {
+                    String write = "Bouch_Write_Client.jar";
+                    String read = "Bouch_Read_Client.jar";
+
+                    File writeFile = new File(write);
+                    File readFile = new File(read);
+
+                    write = writeFile.getAbsolutePath();
+                    read = readFile.getAbsolutePath();
+
+                    ShowMessage("\n Path: " + write);
+                    ShowMessage("\n Path: " + read);
+
+                    Runtime.getRuntime().exec("cmd /c start Bouch_Write_Client.jar");
+                    Runtime.getRuntime().exec("cmd /c start Bouch_Read_Client.jar");
+
                     WaitForConnection();
                     SetUpStreams();
                     RunningChat();
                 }catch(EOFException exc)
+                {
+                    ShowMessage("\n ERROR: " + exc.toString());
+                }catch(Exception exc)
                 {
                     ShowMessage("\n ERROR: " + exc.toString());
                 } finally
