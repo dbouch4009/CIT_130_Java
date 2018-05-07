@@ -1,3 +1,10 @@
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class final_proj_main
@@ -58,6 +65,68 @@ public class final_proj_main
         dataStructures.to_stack();
         dataStructures.to_arraylist();
 
+        MyQueue myQueue = new MyQueue();
+        for(int i = 0; i < sizeArray.length; i++)
+        {
+            System.out.println("Adding to queue: " + sizeArray[i]);
+            myQueue.AddToBack(sizeArray[i]);
+        }
+
+        while (!myQueue.IsEmpty())
+        {
+            myQueue.RemoveFront();
+        }
+
+        dataStructures.to_hashnap(sizeArray);
+
+        System.out.println("\nQuestion Five: ");
+        XML_Stuff xml_stuff = new XML_Stuff();
+        xml_stuff.print_values_with_dom();
+
+        File myFile = new File("plant_catalog.xml");
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+        try
+        {
+            SAXParser saxParser = saxParserFactory.newSAXParser();
+            FlowerHandler flowerHandler = new FlowerHandler(1);
+            saxParser.parse(myFile,flowerHandler);
+        }catch (ParserConfigurationException exc)
+        {
+            System.out.println(exc.getMessage());
+        }catch (SAXException exc)
+        {
+            System.out.println(exc.getMessage());
+        }
+        catch (IOException exc)
+        {
+            System.out.println(exc.getMessage());
+        }
+
+        System.out.println("\n Question 6");
+
+        try {
+            EchoServer echoServer = new EchoServer();
+            echoServer.StartUp();
+        }catch(IOException exc)
+        {
+            System.out.println(exc.getMessage());
+        }
+
+        try {
+            Thread.sleep(3000);
+        }catch (InterruptedException exc)
+        {
+            System.out.println(exc.getMessage());
+        }
+
+        try
+        {
+            Client client = new Client("127.0.0.1");
+            client.run();
+        }catch (Exception exc)
+        {
+            System.out.println(exc.getMessage());
+        }
     }
 }
 

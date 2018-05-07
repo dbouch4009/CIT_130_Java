@@ -32,7 +32,7 @@ class DataStructures
     }
     public void to_queue()
     {
-
+        //See MyQueue class
     }
     public void to_arraylist(){
         ArrayList arrayList = new ArrayList();
@@ -46,7 +46,32 @@ class DataStructures
         System.out.println("ArrayList: \n" + arrayList.toString());
 
     }
-    public void to_hashnap(String[] key, String[] value){
+    public void to_hashnap(String[] inputArray)
+    {
+        HashMap<Integer,String> hashMap = new HashMap<Integer, String>();
+
+        for(int i = 0; i < inputArray.length; i++)
+        {
+            System.out.println("Adding to HashMap: " + inputArray[i]);
+            hashMap.put(i,inputArray[i]);
+        }
+
+        for(int i = 0; i < hashMap.size(); i++)
+        {
+            String searchValue = inputArray[i];
+            //System.out.println(hashMap.containsValue(searchValue));
+            System.out.println("Searching From Input Array For: " + searchValue);
+            if(hashMap.containsValue(searchValue))
+            {
+                String name = hashMap.get(i);
+                System.out.println("Found in HashMap: " + name);
+            }
+            else
+            {
+                System.out.println("Try Again");
+            }
+        }
+
         // create HashMap with array key being the key for the corresponding index of value key[x] -> value[x]
         // print key value pair
     }
